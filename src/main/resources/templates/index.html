@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
 <head th:insert="~{common :: commonHead}">
   <title>Product Manager</title>
@@ -8,6 +11,11 @@
 
 <body>
 <div class="container">
+  <div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+      <button type="submit" class="btn btn-secondary float-end mb-3">Logout</button>
+    </form>
+  </div>
   <h1 class="mt-5">Product List</h1>
   <a class="btn btn-primary mb-3" th:href="@{/products/new}">Create New Product</a>
 
