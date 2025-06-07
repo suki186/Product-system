@@ -8,7 +8,7 @@
 
 <body>
 <div class="container">
-    <h1 class="mt-5 text-center">Create New Product</h1>
+    <h1 class="mt-5 text-center">상품 등록하기</h1>
     <br />
     <form th:action="@{/products/save}" th:object="${product}" method="post">
         <div class="row justify-content-center">
@@ -35,6 +35,7 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <a th:href="@{/products}" class="btn btn-secondary">상품페이지로</a>
                 </div>
             </div>
         </div>
