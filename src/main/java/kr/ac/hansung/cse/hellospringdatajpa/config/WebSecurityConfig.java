@@ -45,6 +45,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(PUBLIC_MATCHERS).permitAll()
                         .requestMatchers("/", "/products", "/signup").permitAll()
+                        .requestMatchers("/products/new", "/products/edit/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
