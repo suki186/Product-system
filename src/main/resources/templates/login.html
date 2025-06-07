@@ -14,11 +14,7 @@
 
             <form method="post" th:action="@{/login}">
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                    Invalid Email and Password.
-                </div>
-
-                <div th:if="${param.logout}" class="alert alert-info" role="alert">
-                    Successfully logged out
+                    이메일 또는 비밀번호가 올바르지 않습니다.
                 </div>
 
                 <div class="form-floating mb-2">
