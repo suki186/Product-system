@@ -19,7 +19,7 @@
   <!-- 로그인한 경우 -->
   <div sec:authorize="isAuthenticated()" class="d-flex justify-content-between align-items-center gap-2 mb-3">
     <div class="alert alert-success mb-0 d-flex align-items-center" style="flex-grow: 1;">
-      🎉 환영합니다, <span th:text="${#strings.substringBefore(#authentication.name, '@')}"></span>님!
+      🎉 환영합니다,&nbsp;<span th:text="${#strings.substringBefore(#authentication.name, '@')}"></span>님!
     </div>
     <form th:action="@{/logout}" method="post" style="display: inline;">
       <button type="submit" class="btn btn-secondary">LogOut</button>
@@ -28,9 +28,10 @@
 
   <h1 class="mt-5">Product List</h1>
 
-  <!-- 상품 생성 버튼 -> 관리자만 -->
-  <div sec:authorize="hasRole('ADMIN')">
-    <a class="btn btn-primary mb-3" th:href="@{/products/new}">Create New Product</a>
+  <!-- 상품 생성, 관리자 페이지 버튼 -> 관리자만 -->
+  <div sec:authorize="hasRole('ADMIN')" class="d-flex justify-content-end gap-2 mb-3">
+    <a class="btn btn-primary mb-3" th:href="@{/products/new}">상품 등록</a>
+    <a class="btn btn-warning mb-3" th:href="@{/admin/users}">관리자 페이지</a>
   </div>
 
   <table class="table table-bordered">
